@@ -1,0 +1,40 @@
+type Book {
+    isbn: ID!
+    title: String!
+    pages: Int
+    author: Author
+}
+
+type Author {
+    idCardNo: ID!
+    name: String!
+    age: Int
+}
+
+input BookInput {
+    isbn: ID!
+    title: String!
+    pages: Int
+    authorIdCardNo: String
+}
+
+input AuthorInput {
+    idCardNo: ID!
+    name: String!
+    age: Int
+}
+
+type Query {
+    allBooks: [Book]!
+    bookByIsbn(isbn: ID): Book
+}
+
+
+type Mutation {
+    createBook(bookInput: BookInput): Book
+    createAuthor(authorInput: AuthorInput): Author
+}
+
+type Subscription {
+    greetings: String
+}
