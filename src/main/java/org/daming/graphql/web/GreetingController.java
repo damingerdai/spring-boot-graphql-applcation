@@ -13,7 +13,7 @@ public class GreetingController {
 
     @SubscriptionMapping
     public Flux<String> greetings() {
-        return Flux.fromStream(Stream.generate(() -> new String("Hello GraphQL" + UUID.randomUUID())))
+        return Flux.fromStream(Stream.generate(() -> "Hello GraphQL" + UUID.randomUUID()))
                 .delayElements(Duration.ofSeconds(5L))
                 .take(10);
     }
